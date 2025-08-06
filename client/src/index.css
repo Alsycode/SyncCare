@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@plugin "daisyui";
+*{
+  padding: none;
+  box-sizing: border-box;
+  margin: none;
+}
