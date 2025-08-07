@@ -99,7 +99,7 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="min-h-screen ml-[120px] rounded-bl-[50px] rounded-tl-[50px] bg-doc flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
+    <div className="min-h-screen  rounded-bl-[50px] rounded-tl-[50px] bg-doc flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
       <div className="w-full max-w-7xl  shadow-lg rounded-xl p-8 sm:p-10">
         <div className="flex flex-col gap-5">
           <div className="flex gap-5 h-[35vh] max-[1020px]:flex-wrap max-[1020px]:h-auto">

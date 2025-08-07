@@ -22,7 +22,7 @@ const LoginPage = () => {
       );
       console.log("response", response.data);
       if (response.data.success) {
-        setIsAuthenticated(true); // Set authentication state
+        naviate("/")
       } else {
         setError(response.data.message || "Login failed");
       }

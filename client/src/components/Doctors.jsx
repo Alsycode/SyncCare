@@ -35,8 +35,8 @@ const doctorsData = [
 
 const Doctors = () => {
   return (
-    <div className="min-h-screen ml-[120px]  bg-black flex items-center justify-center  ">
-      <div className="w-full rounded-bl-[50px] rounded-tl-[50px]  bg-white shadow-lg  p-8 sm:p-10">
+    
+      <div className="w-full   bg-white shadow-lg  p-8 sm:p-10">
         <h2 className="text-3xl font-semibold text-gray-800 text-center mb-8">
           Our Doctors
         </h2>
@@ -61,7 +61,7 @@ const Doctors = () => {
           </div>
         </div>
       </div>
-    </div>
+    
   );
 };
 

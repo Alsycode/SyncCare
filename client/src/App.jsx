@@ -1,106 +1,47 @@
-import React, { useContext, useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
-import Dashboard from "./components/Dashboard";
-// import Login from "./components/Login";
-// import AddNewDoctor from "./components/AddNewDoctor";
-// import Messages from "./components/Messages";
-// import Doctors from "./components/Doctors";
-// import { Context } from "./main";
-// import axios from "axios";
+import React, { useContext } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Sidebar from "./components/Sidebar";
-// import AddNewAdmin from "./components/AddNewAdmin";
-import "./App.css";
-import PrivateRoute from "./components/PrivateRoute";
-import AppointmentForm from "./components/AppointmentForm";
-import Doctors from "./components/Doctors";
-import { AuthProvider } from "./context/authContext";
-import { AuthContext } from "./context/authContext";
+import Layout from "./components/Layout.jsx";
+
 import LoginPage from "./pages/Login";
+import { AuthProvider, AuthContext } from "./context/authContext";
+import Dashboard from "./components/Dashboard";
+import Doctors from "./components/Doctors";
+import AppointmentForm from "./components/AppointmentForm";
+// import AddNewDoctor from "./components/AddNewDoctor";
+// import AddNewAdmin from "./components/AddNewAdmin";
+// import Messages from "./components/Messages";
+import PrivateRoute from "./components/PrivateRoute";
+import "./App.css";
+
 const App = () => {
-   const { isAuthenticated, setIsAuthenticated, admin, setAdmin } =
-    useContext(AuthContext);
-// const isAuthenticated = true;
-  // useEffect(() => {
-  //   const fetchUser = async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         "http://localhost:5000/api/v1/user/admin/me",
-  //         {
-  //           withCredentials: true,
-  //         }
-  //       );
-  //       setIsAuthenticated(true);
-  //       setAdmin(response.data.user);
-  //     } catch (error) {
-  //       setIsAuthenticated(false);
-  //       setAdmin({});
-  //     }
-  //   };
-  //   fetchUser();
-  // }, [isAuthenticated]);
+  const { isAuthenticated, setIsAuthenticated, admin, setAdmin } = useContext(AuthContext);
 
   return (
     <AuthProvider>
-       <Router>
-      <div className="bg-blackd">
-        
-     <Sidebar />
-     <Routes>
-  <Route
-    path="/"
-    element={
-      // <PrivateRoute isAuthenticated={isAuthenticated}>
-        <Dashboard />
-      // </PrivateRoute>
-    }
-  />
-  {/* <Route
-    path="/doctor/addnew"
-    element={
-      <PrivateRoute isAuthenticated={isAuthenticated}>
-        <AddNewDoctor />
-      </PrivateRoute>
-    }
-  /> */}
-  {/* <Route
-    path="/admin/addnew"
-    element={
-      <PrivateRoute isAuthenticated={isAuthenticated}>
-        <AddNewAdmin />
-      </PrivateRoute>
-    }
-  /> */}
-  {/* <Route
-    path="/messages"
-    element={
-      <PrivateRoute isAuthenticated={isAuthenticated}>
-        <Messages />
-      </PrivateRoute>
-    }
-  /> */}
-  {/* <Route
-    path="/doctors"
-    element={
-      <PrivateRoute isAuthenticated={isAuthenticated}>
-        <Doctors />
-      </PrivateRoute>
-    }
-  /> */}
-  <Route path="/login" element={<LoginPage />} />
-</Routes>
+      <Router>
+        <div className="bg-blackd">
+          <Routes>
+            {/* Login route without Layout */}
+            <Route path="/login" element={<LoginPage />} />
 
-      <ToastContainer position="top-center" />
-      </div>
-    </Router>
+            {/* Protected routes wrapped in Layout */}
+           
+              <Route path="/" element={<Layout />}>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/doctors" element={<Doctors />} />
+                {/* <Route path="/messages" element={<Messages />} />
+                <Route path="/doctor" element={<AddNewDoctor />} />
+                <Route path="/admin/addnew" element={<AddNewAdmin />} /> */}
+                <Route path="/createAppointment" element={<AppointmentForm />} />
+              </Route>
+          
+          </Routes>
+          <ToastContainer position="top-center" />
+        </div>
+      </Router>
     </AuthProvider>
-   
   );
 };
 
