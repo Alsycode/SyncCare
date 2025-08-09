@@ -82,24 +82,25 @@ export const validateRegister = (req, res, next) => {
   next();
 };
 
+
 export const validateLogin = (req, res, next) => {
+  // Check if req.body exists
+  if (!req.body) {
+    return res.status(400).json({ message: "Request body is missing or empty" });
+  }
+
   const { email, password } = req.body;
 
   // Validate required fields
   if (!email || !password) {
-    return res.status(400).json({
-      success: false,
-      message: "Email and password are required",
-    });
+    return res.status(400).json({ message: "Email and password are required" });
   }
 
   // Validate email format
   if (!validator.isEmail(email)) {
-    return res.status(400).json({
-      success: false,
-      message: "Provide a valid email",
-    });
+    return res.status(400).json({ message: "Provide a valid email" });
   }
 
   next();
 };
+
