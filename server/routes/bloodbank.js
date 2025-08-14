@@ -1,9 +1,9 @@
 import React from 'react'
 
-const bloodbank = () => {
+const Bloodbank = () => {
   return (
     <div>bloodbank</div>
   )
 }
 
-export default bloodbank
+export default Bloodbank
