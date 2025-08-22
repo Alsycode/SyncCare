@@ -4,6 +4,7 @@ const chats = () => {
   return (
     <div>chaaatc
         <div>chaaatc</div>
+        <div>chaaatc</div>
     </div>
   )
 }
