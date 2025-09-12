@@ -57,6 +57,7 @@ const Doctors = () => {
                   <p className="text-sm text-gray-500">Available Days: {availableDays}</p>
                 </div>
                 <h1>hi</h1>
+                 <h1>hi</h1>
               </div>
             ))}
           </div>
