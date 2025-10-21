@@ -123,7 +123,7 @@ const Sidebar = () => {
         onClick={() => setShow(!show)}
         className="lg:hidden max-[1208px]:block fixed top-[30px] left-[40px] text-[34px] bg-[#3939d9f2] text-white h-[40px] w-[40px] rounded-lg flex justify-center items-center max-[485px]:left-[20px] cursor-pointer"
       >
-        <GiHamburgerMenu />
+        
                  
   
            <GiHamburgerMenu />
