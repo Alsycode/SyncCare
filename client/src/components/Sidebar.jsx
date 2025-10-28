@@ -125,6 +125,7 @@ const Sidebar = () => {
       >
         
                  
+<GiHamburgerMenu />
 
            <GiHamburgerMenu />
       </div>
