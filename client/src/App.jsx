@@ -14,6 +14,7 @@ import AppointmentForm from "./components/AppointmentForm";
 // import Messages from "./components/Messages";
 import PrivateRoute from "./components/PrivateRoute";
 import "./App.css";
+import Todo from "./pages/Todo.jsx";
 
 const App = () => {
   const { isAuthenticated, setIsAuthenticated, admin, setAdmin } = useContext(AuthContext);
@@ -36,7 +37,7 @@ const App = () => {
                 <Route path="/admin/addnew" element={<AddNewAdmin />} /> */}
                 <Route path="/createAppointment" element={<AppointmentForm />} />
               </Route>
-          
+          <Route path="/todo" element={<Todo/>}/>
           </Routes>
           <ToastContainer position="top-center" />
         </div>
